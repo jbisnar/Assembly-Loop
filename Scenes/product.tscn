@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqbwciwapo87l"]
+
+[ext_resource type="Script" uid="uid://dvp5tnrq22oxc" path="res://Scripts/product.gd" id="1_56i4f"]
+[ext_resource type="Texture2D" uid="uid://cpbxcmyhdsiss" path="res://Sprites/bear.png" id="2_42pth"]
+[ext_resource type="Texture2D" uid="uid://bimt4toefyclf" path="res://Sprites/Metal Plate.png" id="3_58fyq"]
+[ext_resource type="Texture2D" uid="uid://b02miwr63wwy6" path="res://Sprites/WheelBG.png" id="4_jd1bn"]
+[ext_resource type="Texture2D" uid="uid://qeslgo266qle" path="res://Sprites/Engine.png" id="5_xevhs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04xlk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jthcb"]
+font_size = 20
+
+[node name="Product" type="Node2D"]
+z_index = 2
+script = ExtResource("1_56i4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("2_42pth")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_04xlk")
+
+[node name="MaterialCounter" type="Node2D" parent="."]
+
+[node name="MetalIcon" type="Sprite2D" parent="MaterialCounter"]
+texture_filter = 1
+position = Vector2(-14.5, -18.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_58fyq")
+
+[node name="MetalCounter" type="Label" parent="MaterialCounter"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -16.5
+offset_right = 15.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_jthcb")
+horizontal_alignment = 1
+
+[node name="WheelIcon" type="Sprite2D" parent="MaterialCounter"]
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jd1bn")
+
+[node name="WheelCounter" type="Label" parent="MaterialCounter"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -16.0
+offset_right = 30.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_jthcb")
+horizontal_alignment = 1
+
+[node name="EngineIcon" type="Sprite2D" parent="MaterialCounter"]
+texture_filter = 1
+position = Vector2(13.5, -18.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xevhs")
+
+[node name="EngineCounter" type="Label" parent="MaterialCounter"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.5
+offset_top = -16.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_jthcb")
+horizontal_alignment = 1

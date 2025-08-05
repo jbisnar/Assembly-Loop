@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://7xf8jvojl2uo"]
+
+[ext_resource type="Script" uid="uid://evvv41a8ubxl" path="res://Scripts/packager.gd" id="1_00ydc"]
+[ext_resource type="PackedScene" uid="uid://drd1u57dfja7b" path="res://Scenes/package.tscn" id="2_i2fbf"]
+[ext_resource type="Texture2D" uid="uid://cs4gt2fqgsdce" path="res://Sprites/Packager.png" id="3_4ofl8"]
+[ext_resource type="Texture2D" uid="uid://dqlnclj2ut54b" path="res://Sprites/Green4x4.png" id="4_ej4ox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mhb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ofl8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlxc"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg18s"]
+size = Vector2(40, 40)
+
+[node name="Packager" type="Node2D"]
+script = ExtResource("1_00ydc")
+packageScene = ExtResource("2_i2fbf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_1mhb5")
+frame_progress = 0.613386
+
+[node name="LightSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+texture = ExtResource("4_ej4ox")
+offset = Vector2(0, 19)
+
+[node name="SpawnPos" type="Node2D" parent="."]
+position = Vector2(0, 50)
+
+[node name="ClickArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea2D"]
+shape = SubResource("RectangleShape2D_8vlxc")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eg18s")
+
+[connection signal="input_event" from="ClickArea2D" to="." method="_on_area_2d_input_event"]

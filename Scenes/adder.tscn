@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://btw84ute3pt1k"]
+
+[ext_resource type="Script" uid="uid://8svy6xe23xbl" path="res://Scripts/adder.gd" id="1_h4sq0"]
+[ext_resource type="PackedScene" uid="uid://bqbwciwapo87l" path="res://Scenes/product.tscn" id="2_7c3uf"]
+[ext_resource type="Texture2D" uid="uid://uptuvqeqju4k" path="res://Sprites/AdderA.png" id="3_4mp4y"]
+[ext_resource type="Texture2D" uid="uid://dqlnclj2ut54b" path="res://Sprites/Green4x4.png" id="4_rtmwj"]
+[ext_resource type="Texture2D" uid="uid://bimt4toefyclf" path="res://Sprites/Metal Plate.png" id="5_8hgy1"]
+[ext_resource type="Texture2D" uid="uid://b02miwr63wwy6" path="res://Sprites/WheelBG.png" id="6_y0o37"]
+[ext_resource type="Texture2D" uid="uid://qeslgo266qle" path="res://Sprites/Engine.png" id="7_ch6yf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mhb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4mp4y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rfma"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg18s"]
+size = Vector2(40, 40)
+
+[node name="Adder" type="Node2D"]
+z_index = -2
+script = ExtResource("1_h4sq0")
+part = 1
+productScene = ExtResource("2_7c3uf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_1mhb5")
+
+[node name="LightSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+texture = ExtResource("4_rtmwj")
+offset = Vector2(0, 19)
+
+[node name="SpawnPos" type="Node2D" parent="."]
+position = Vector2(0, 50)
+
+[node name="ClickArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea2D"]
+shape = SubResource("RectangleShape2D_5rfma")
+
+[node name="AddArea2D" type="Area2D" parent="."]
+position = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AddArea2D"]
+shape = SubResource("RectangleShape2D_eg18s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ConfigWindow" type="Window" parent="CanvasLayer"]
+auto_translate_mode = 1
+title = "Set material"
+initial_position = 2
+size = Vector2i(200, 120)
+visible = false
+
+[node name="MaterialOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -39.0
+offset_right = 75.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Metal"
+popup/item_0/icon = ExtResource("5_8hgy1")
+popup/item_0/id = 1
+popup/item_1/text = "Wheel"
+popup/item_1/icon = ExtResource("6_y0o37")
+popup/item_1/id = 2
+popup/item_2/text = "Engine"
+popup/item_2/icon = ExtResource("7_ch6yf")
+popup/item_2/id = 3
+
+[connection signal="input_event" from="ClickArea2D" to="." method="_on_click_area_2d_input_event"]
+[connection signal="close_requested" from="CanvasLayer/ConfigWindow" to="." method="_on_config_window_close_requested"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/MaterialOptionButton" to="." method="_on_material_option_button_item_selected"]

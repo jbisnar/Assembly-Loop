@@ -1,0 +1,460 @@
+[gd_scene load_steps=22 format=4 uid="uid://bhioglh63dfxy"]
+
+[ext_resource type="Texture2D" uid="uid://0ygyx1fryw2r" path="res://mapPack_spritesheet.png" id="2_5drvs"]
+[ext_resource type="Script" path="res://Scripts/placement_manger.gd" id="2_a11m4"]
+[ext_resource type="PackedScene" uid="uid://bqbwciwapo87l" path="res://Scenes/product.tscn" id="2_moabh"]
+[ext_resource type="PackedScene" uid="uid://3prbnbyks3gx" path="res://Scenes/straight_belt.tscn" id="3_yt7gc"]
+[ext_resource type="Script" path="res://Scripts/event_bus_debug.gd" id="4_3ewia"]
+[ext_resource type="PackedScene" uid="uid://cjpcq60nojpkh" path="res://Scenes/clockwise_belt.tscn" id="5_4mtqv"]
+[ext_resource type="PackedScene" uid="uid://cgkpdrklpftpr" path="res://Scenes/counter_clockwise_belt.tscn" id="6_pxbmx"]
+[ext_resource type="PackedScene" uid="uid://btw84ute3pt1k" path="res://Scenes/adder.tscn" id="7_phaqo"]
+[ext_resource type="PackedScene" uid="uid://bbcut03ujr0r2" path="res://Scenes/scanner.tscn" id="8_mtf1g"]
+[ext_resource type="PackedScene" uid="uid://dp64f36jrhu7l" path="res://Scenes/repeater.tscn" id="9_1h5fj"]
+[ext_resource type="PackedScene" uid="uid://bhq7clmq06aa8" path="res://Scenes/trasher.tscn" id="10_7m50y"]
+[ext_resource type="PackedScene" uid="uid://7xf8jvojl2uo" path="res://Scenes/packager.tscn" id="11_8w1vp"]
+[ext_resource type="PackedScene" uid="uid://b0f4816nv6w7h" path="res://Scenes/sequencer.tscn" id="12_13wlx"]
+[ext_resource type="Texture2D" uid="uid://dsimak0tvab2v" path="res://tank_red.png" id="12_msvnv"]
+[ext_resource type="Texture2D" uid="uid://cjhsy6grv1osl" path="res://Sprites/TrashA.png" id="13_3qpkg"]
+[ext_resource type="Texture2D" uid="uid://cs4gt2fqgsdce" path="res://Sprites/Packager.png" id="14_a84bc"]
+[ext_resource type="Texture2D" uid="uid://bkrhft7svdd6a" path="res://Sprites/DetectorNew.png" id="15_mpbd4"]
+[ext_resource type="Texture2D" uid="uid://ivd41y6d4xbx" path="res://Sprites/Delayer.png" id="16_x5ccg"]
+[ext_resource type="Texture2D" uid="uid://cu2vgnthk2kj5" path="res://Sprites/Repeater.png" id="17_57v7h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dqta"]
+texture = ExtResource("2_5drvs")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7yiak"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_7dqta")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlacementManger" type="Node2D" parent="."]
+script = ExtResource("2_a11m4")
+StraightBeltScene = ExtResource("3_yt7gc")
+CWBeltScene = ExtResource("5_4mtqv")
+CCWBeltScene = ExtResource("6_pxbmx")
+AssemblerScene = ExtResource("7_phaqo")
+TrashScene = ExtResource("10_7m50y")
+PackagerScene = ExtResource("11_8w1vp")
+ScannerScene = ExtResource("8_mtf1g")
+SequencerScene = ExtResource("12_13wlx")
+RepeaterScene = ExtResource("9_1h5fj")
+
+[node name="GenerationTileMap" type="TileMapLayer" parent="PlacementManger"]
+z_index = -4
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAAKAAEAAAACAAAAAAAJAAEAAAABAAAAAAAIAAEAAAACAAMAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAAACAAAAAAAEAAEAAAABAAAAAAADAAEAAAACAAMAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAABAAMAAAAEAAIAAAAAAAAAAAAFAAIAAAADAAIAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAAIAAAADAAEAAAAJAAIAAAAAAAAAAAAKAAIAAAABAAEAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAABAAEAAAAJAAMAAAAAAAAAAAAIAAMAAAADAAAAAAAHAAMAAAABAAIAAAAGAAMAAAABAAIAAAAFAAMAAAADAAMAAAAEAAMAAAAAAAAAAAADAAMAAAABAAMAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAACAAIAAAAEAAQAAAABAAIAAAAFAAQAAAACAAEAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAACAAIAAAAJAAQAAAABAAIAAAAKAAQAAAACAAEAAAALAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7yiak")
+
+[node name="HighlightTileMap" type="TileMapLayer" parent="PlacementManger"]
+z_index = -4
+tile_map_data = PackedByteArray("AAACAAAAAAAJAAAAAAA=")
+tile_set = SubResource("TileSet_7yiak")
+
+[node name="PlacementGhost" type="Node2D" parent="PlacementManger"]
+modulate = Color(1, 1, 1, 0.501961)
+
+[node name="AssemblerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+texture = ExtResource("12_msvnv")
+
+[node name="TrasherGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("13_3qpkg")
+
+[node name="PackagerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("14_a84bc")
+
+[node name="ScannerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("15_mpbd4")
+
+[node name="SequencerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 19)
+texture = ExtResource("16_x5ccg")
+
+[node name="RepeaterGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 19)
+texture = ExtResource("17_57v7h")
+
+[node name="Product" parent="." instance=ExtResource("2_moabh")]
+position = Vector2(330, 123)
+
+[node name="StraightBelt" parent="." instance=ExtResource("3_yt7gc")]
+position = Vector2(503, 281)
+
+[node name="EventBusDebug" type="Node" parent="."]
+script = ExtResource("4_3ewia")
+
+[node name="MoveTick" type="Button" parent="EventBusDebug"]
+offset_right = 83.0
+offset_bottom = 31.0
+text = "Move tick"
+
+[node name="AdderTick" type="Button" parent="EventBusDebug"]
+offset_top = 40.0
+offset_right = 87.0
+offset_bottom = 71.0
+text = "Adder tick"
+
+[node name="NonImpactingTick" type="Button" parent="EventBusDebug"]
+offset_top = 88.0
+offset_right = 87.0
+offset_bottom = 119.0
+text = "Non-altering tick"
+
+[node name="InputSignalTick" type="Button" parent="EventBusDebug"]
+offset_top = 131.0
+offset_right = 153.0
+offset_bottom = 162.0
+text = "Signal transfer tick"
+
+[node name="FullTick" type="Button" parent="EventBusDebug"]
+offset_top = 176.0
+offset_right = 153.0
+offset_bottom = 207.0
+text = "Full tick"
+
+[node name="ClockwiseBelt" parent="." instance=ExtResource("5_4mtqv")]
+position = Vector2(711, 303)
+rotation = 1.57079
+
+[node name="CounterClockwiseBelt" parent="." instance=ExtResource("6_pxbmx")]
+position = Vector2(621, 306)
+rotation = 1.57079
+
+[node name="Adder" parent="." instance=ExtResource("7_phaqo")]
+position = Vector2(841, 306)
+part = 3
+
+[node name="Scanner" parent="." node_paths=PackedStringArray("Receivers") instance=ExtResource("8_mtf1g")]
+position = Vector2(711, 176)
+Receivers = [NodePath("../Trasher")]
+
+[node name="Repeater" parent="." node_paths=PackedStringArray("Receivers") instance=ExtResource("9_1h5fj")]
+position = Vector2(410, 516)
+Receivers = [NodePath("../Repeater2")]
+
+[node name="Repeater2" parent="." node_paths=PackedStringArray("Receivers") instance=ExtResource("9_1h5fj")]
+position = Vector2(493, 516)
+Receivers = [NodePath("../Repeater3"), NodePath("../Adder")]
+
+[node name="Repeater3" parent="." instance=ExtResource("9_1h5fj")]
+position = Vector2(570, 516)
+
+[node name="Trasher" parent="." instance=ExtResource("10_7m50y")]
+position = Vector2(386, 309)
+
+[node name="Packager" parent="." instance=ExtResource("11_8w1vp")]
+position = Vector2(614, 85)
+
+[node name="Sequencer" parent="." node_paths=PackedStringArray("Receivers") instance=ExtResource("12_13wlx")]
+position = Vector2(222, 465)
+Receivers = [NodePath("../Repeater")]
+
+[connection signal="pressed" from="EventBusDebug/MoveTick" to="EventBusDebug" method="_on_game_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/AdderTick" to="EventBusDebug" method="_on_adder_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/NonImpactingTick" to="EventBusDebug" method="_on_non_impacting_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/InputSignalTick" to="EventBusDebug" method="_on_input_signal_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/FullTick" to="EventBusDebug" method="_on_full_tick_pressed"]

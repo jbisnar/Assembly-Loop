@@ -1,0 +1,286 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0f4816nv6w7h"]
+
+[ext_resource type="Script" uid="uid://cyegxagshu8dp" path="res://Scripts/sequencer.gd" id="1_ib4y0"]
+[ext_resource type="Texture2D" uid="uid://ivd41y6d4xbx" path="res://Sprites/Delayer.png" id="2_3ynql"]
+[ext_resource type="Texture2D" uid="uid://brkajge73xvg8" path="res://Sprites/Red4x4.png" id="3_qee6y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mhb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3ynql")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6cy0"]
+size = Vector2(50, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yq7p"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.811765, 0.811765, 0.811765, 1)
+
+[node name="Sequencer" type="Node2D"]
+script = ExtResource("1_ib4y0")
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(0, 19)
+sprite_frames = SubResource("SpriteFrames_1mhb5")
+
+[node name="LightSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -19)
+texture = ExtResource("3_qee6y")
+offset = Vector2(0, 19)
+
+[node name="ClickArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea2D"]
+shape = SubResource("RectangleShape2D_q6cy0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ConfigWindow" type="Window" parent="CanvasLayer"]
+title = "Set signal sequence"
+initial_position = 2
+size = Vector2i(315, 415)
+visible = false
+
+[node name="Sequence" type="Control" parent="CanvasLayer/ConfigWindow"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StepBackground" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground2" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 45.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground3" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground4" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 135.0
+offset_bottom = 185.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground5" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 180.0
+offset_bottom = 230.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground5"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground6" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 225.0
+offset_bottom = 275.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground6"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground7" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 270.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground7"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="StepBackground8" type="Panel" parent="CanvasLayer/ConfigWindow/Sequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 315.0
+offset_bottom = 365.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yq7p")
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/Sequence/StepBackground8"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 60.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Go"
+
+[node name="AddGoButton" type="Button" parent="CanvasLayer/ConfigWindow"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -147.5
+offset_top = -40.0
+offset_right = -82.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Add Go"
+
+[node name="AddStopButton" type="Button" parent="CanvasLayer/ConfigWindow"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_top = -40.0
+offset_right = 5.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Add Stop"
+
+[node name="DeleteButton" type="Button" parent="CanvasLayer/ConfigWindow"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 17.5
+offset_top = -40.0
+offset_right = 150.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Delete Last Step"
+
+[connection signal="input_event" from="ClickArea2D" to="." method="_on_click_area_2d_input_event"]
+[connection signal="close_requested" from="CanvasLayer/ConfigWindow" to="." method="_on_config_window_close_requested"]
+[connection signal="pressed" from="CanvasLayer/ConfigWindow/AddGoButton" to="." method="_add_sequence_step" binds= [true]]
+[connection signal="pressed" from="CanvasLayer/ConfigWindow/AddStopButton" to="." method="_add_sequence_step" binds= [false]]
+[connection signal="pressed" from="CanvasLayer/ConfigWindow/DeleteButton" to="." method="_delete_last_step"]

@@ -1,0 +1,2047 @@
+[gd_scene load_steps=43 format=4 uid="uid://bgmv1fulakpnm"]
+
+[ext_resource type="Script" uid="uid://bcvfdj3o0cq6x" path="res://Scripts/placement_manger.gd" id="1_eqfgu"]
+[ext_resource type="PackedScene" uid="uid://3prbnbyks3gx" path="res://Scenes/straight_belt.tscn" id="2_ot36e"]
+[ext_resource type="PackedScene" uid="uid://cjpcq60nojpkh" path="res://Scenes/clockwise_belt.tscn" id="3_1iih2"]
+[ext_resource type="PackedScene" uid="uid://cgkpdrklpftpr" path="res://Scenes/counter_clockwise_belt.tscn" id="4_ypels"]
+[ext_resource type="PackedScene" uid="uid://btw84ute3pt1k" path="res://Scenes/adder.tscn" id="5_q8lx4"]
+[ext_resource type="PackedScene" uid="uid://bhq7clmq06aa8" path="res://Scenes/trasher.tscn" id="6_xnqa3"]
+[ext_resource type="PackedScene" uid="uid://7xf8jvojl2uo" path="res://Scenes/packager.tscn" id="7_wqcco"]
+[ext_resource type="PackedScene" uid="uid://bbcut03ujr0r2" path="res://Scenes/scanner.tscn" id="8_8qo3l"]
+[ext_resource type="PackedScene" uid="uid://b0f4816nv6w7h" path="res://Scenes/sequencer.tscn" id="9_o001d"]
+[ext_resource type="PackedScene" uid="uid://dp64f36jrhu7l" path="res://Scenes/repeater.tscn" id="10_4kvaq"]
+[ext_resource type="Texture2D" uid="uid://0ygyx1fryw2r" path="res://mapPack_spritesheet.png" id="11_ih6uf"]
+[ext_resource type="Texture2D" uid="uid://ba6hh2fbqa1tj" path="res://Sprites/Highlight.png" id="12_aognp"]
+[ext_resource type="Texture2D" uid="uid://pmy0adktn64u" path="res://Sprites/Belt Spritesheet.png" id="13_jv66w"]
+[ext_resource type="Texture2D" uid="uid://uptuvqeqju4k" path="res://Sprites/AdderA.png" id="14_0qyju"]
+[ext_resource type="Texture2D" uid="uid://cjhsy6grv1osl" path="res://Sprites/TrashA.png" id="15_tyssd"]
+[ext_resource type="Texture2D" uid="uid://cs4gt2fqgsdce" path="res://Sprites/Packager.png" id="16_f4dbd"]
+[ext_resource type="Texture2D" uid="uid://bkrhft7svdd6a" path="res://Sprites/DetectorNew.png" id="17_tbdtp"]
+[ext_resource type="Texture2D" uid="uid://bf7tikj46y13i" path="res://Sprites/DetectorBeamF.png" id="18_3nqr6"]
+[ext_resource type="Texture2D" uid="uid://ivd41y6d4xbx" path="res://Sprites/Delayer.png" id="19_d77l0"]
+[ext_resource type="Texture2D" uid="uid://cu2vgnthk2kj5" path="res://Sprites/Repeater.png" id="20_0vpru"]
+[ext_resource type="Texture2D" uid="uid://cijdoai8n2opv" path="res://Sprites/X.png" id="21_rlein"]
+[ext_resource type="Texture2D" uid="uid://c4fvq3bc531pn" path="res://Sprites/Wire.png" id="22_3tmit"]
+[ext_resource type="Texture2D" uid="uid://db45kssicvjq4" path="res://Sprites/cursor_none.png" id="23_xpboc"]
+[ext_resource type="Script" uid="uid://bwpdkqwp0oeu0" path="res://Scripts/event_bus_debug.gd" id="24_cqhkv"]
+[ext_resource type="Script" uid="uid://myy7hoggcr4" path="res://Scripts/objective_manager.gd" id="25_28lag"]
+[ext_resource type="Texture2D" uid="uid://b7vwttv404v8j" path="res://Sprites/Unicycle.png" id="26_nbbpy"]
+[ext_resource type="Texture2D" uid="uid://bimt4toefyclf" path="res://Sprites/Metal Plate.png" id="27_vcgrr"]
+[ext_resource type="Texture2D" uid="uid://b02miwr63wwy6" path="res://Sprites/WheelBG.png" id="28_y84vu"]
+[ext_resource type="Texture2D" uid="uid://qeslgo266qle" path="res://Sprites/Engine.png" id="29_uwran"]
+[ext_resource type="Texture2D" uid="uid://c82xxyisf8wv4" path="res://Sprites/Bicycle.png" id="30_pos40"]
+[ext_resource type="Texture2D" uid="uid://1jvqe5xwpyyr" path="res://Sprites/Tricycle2.png" id="31_eb2r5"]
+[ext_resource type="Texture2D" uid="uid://dt0mppjw1oste" path="res://Sprites/Motorcycle.png" id="32_h8kg2"]
+[ext_resource type="Texture2D" uid="uid://bk68d0dehsuvi" path="res://Sprites/Golf Cart.png" id="33_d51a8"]
+[ext_resource type="Texture2D" uid="uid://c5qtrxienytgx" path="res://Sprites/Snowmobile.png" id="34_ffg6m"]
+[ext_resource type="Texture2D" uid="uid://drblvy7gi0kyp" path="res://Sprites/Play.png" id="35_br88t"]
+[ext_resource type="Texture2D" uid="uid://6gcvtmhooj4s" path="res://Sprites/Pause.png" id="36_me4mm"]
+[ext_resource type="Texture2D" uid="uid://doo6foyvfvp1g" path="res://Sprites/Stop.png" id="37_gfmlv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7dqta"]
+texture = ExtResource("11_ih6uf")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31h5o"]
+texture = ExtResource("12_aognp")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpbbm"]
+texture = ExtResource("13_jv66w")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7yiak"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_7dqta")
+sources/1 = SubResource("TileSetAtlasSource_31h5o")
+sources/2 = SubResource("TileSetAtlasSource_kpbbm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_udlml"]
+font_size = 14
+
+[node name="DoubleDuty" type="Node2D"]
+
+[node name="PlacementManger" type="Node2D" parent="." node_paths=PackedStringArray("AssemblerButton", "TrasherButton", "PackagerButton", "ScannerButton", "SequencerButton", "RepeaterButton", "WireButton", "DeleteButton", "InspectionButton")]
+script = ExtResource("1_eqfgu")
+StraightBeltScene = ExtResource("2_ot36e")
+CWBeltScene = ExtResource("3_1iih2")
+CCWBeltScene = ExtResource("4_ypels")
+AssemblerScene = ExtResource("5_q8lx4")
+TrashScene = ExtResource("6_xnqa3")
+PackagerScene = ExtResource("7_wqcco")
+ScannerScene = ExtResource("8_8qo3l")
+SequencerScene = ExtResource("9_o001d")
+RepeaterScene = ExtResource("10_4kvaq")
+AssemblerInventory = 4
+TrasherInventory = 4
+PackagerInventory = 4
+ScannerInventory = 4
+SequencerInventory = 4
+RepeaterInventory = 4
+AssemblerButton = NodePath("CanvasLayer/Toolbar/AssemblerButton")
+TrasherButton = NodePath("CanvasLayer/Toolbar/TrasherButton")
+PackagerButton = NodePath("CanvasLayer/Toolbar/PackagerButton")
+ScannerButton = NodePath("CanvasLayer/Toolbar/ScannerButton")
+SequencerButton = NodePath("CanvasLayer/Toolbar/SequencerButton")
+RepeaterButton = NodePath("CanvasLayer/Toolbar/RepeaterButton")
+WireButton = NodePath("CanvasLayer/Toolbar/WireButton")
+DeleteButton = NodePath("CanvasLayer/Toolbar/DeleteButton")
+InspectionButton = NodePath("CanvasLayer/Toolbar/InspectionButton")
+
+[node name="GenerationTileMap" type="TileMapLayer" parent="PlacementManger"]
+z_index = -4
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAALAAAAAgAAAAAAAAALAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAABAAEAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAABAAIAAgAAAAAAAAACAAIAAgAAAAAAAAADAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAgACAAMAAAAGAAIAAgABAAAAAAAHAAIAAgABAAAAAAAIAAIAAgACAAAAAAAJAAIAAgAAAAAAAAAKAAIAAgAAAAAAAAALAAIAAgAAAAAAAAALAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAIAAMAAgABAAEAAAAHAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAFAAMAAgABAAMAAAAEAAMAAgAAAAAAAAADAAMAAgAAAAAAAAACAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAABAAQAAgAAAAAAAAACAAQAAgAAAAAAAAADAAQAAgAAAAAAAAAEAAQAAgAAAAAAAAAFAAQAAgABAAMAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgABAAEAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAALAAQAAgAAAAAAAAAMAAIAAgAAAAAAAAAMAAMAAgAAAAAAAAAMAAQAAgAAAAAAAAAMAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAIAAUAAgACAAEAAAAHAAUAAgABAAIAAAAGAAUAAgABAAIAAAAFAAUAAgACAAIAAAAEAAUAAgAAAAAAAAADAAUAAgAAAAAAAAACAAUAAgAAAAAAAAABAAUAAgAAAAAAAAAAAAUAAgAAAAAAAAAMAAEAAgAAAAAAAAAMAAAAAgAAAAAAAAANAAAAAgAAAAAAAAANAAIAAgAAAAAAAAANAAMAAgAAAAAAAAANAAQAAgAAAAAAAAANAAUAAgAAAAAAAAANAAYAAgAAAAAAAAAMAAYAAgAAAAAAAAALAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAAJAAYAAgAAAAAAAAAIAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAADAAYAAgAAAAAAAAACAAYAAgAAAAAAAAABAAYAAgAAAAAAAAAAAAYAAgAAAAAAAAANAAEAAgAAAAAAAAABAAcAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAABAAgAAgAAAAAAAAABAAkAAgAAAAAAAAACAAcAAgAAAAAAAAACAAgAAgAAAAAAAAACAAkAAgAAAAAAAAADAAcAAgAAAAAAAAADAAgAAgAAAAAAAAADAAkAAgAAAAAAAAAEAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAAGAAcAAgAAAAAAAAAGAAgAAgAAAAAAAAAGAAkAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAgAAgAAAAAAAAAHAAkAAgAAAAAAAAAIAAcAAgAAAAAAAAAIAAgAAgAAAAAAAAAIAAkAAgAAAAAAAAAJAAcAAgAAAAAAAAAJAAgAAgAAAAAAAAAJAAkAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAAKAAkAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAcAAgAAAAAAAAAMAAgAAgAAAAAAAAAMAAkAAgAAAAAAAAANAAcAAgAAAAAAAAANAAgAAgAAAAAAAAANAAkAAgAAAAAAAAAOAAAAAgAAAAAAAAAOAAEAAgAAAAAAAAAOAAIAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAUAAgAAAAAAAAAOAAYAAgAAAAAAAAAOAAcAAgAAAAAAAAAOAAgAAgAAAAAAAAAOAAkAAgAAAAAAAAAPAAAAAgAAAAAAAAAPAAEAAgAAAAAAAAAPAAIAAgAAAAAAAAAPAAMAAgAAAAAAAAAPAAQAAgAAAAAAAAAPAAUAAgAAAAAAAAAPAAYAAgAAAAAAAAAPAAcAAgAAAAAAAAAPAAgAAgAAAAAAAAAPAAkAAgAAAAAAAAAQAAAAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAkAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_7yiak")
+
+[node name="HighlightTileMap" type="TileMapLayer" parent="PlacementManger"]
+tile_map_data = PackedByteArray("AAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7yiak")
+
+[node name="PlacementGhost" type="Node2D" parent="PlacementManger"]
+modulate = Color(1, 1, 1, 0.501961)
+
+[node name="AssemblerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("14_0qyju")
+
+[node name="TrasherGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("15_tyssd")
+
+[node name="PackagerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("16_f4dbd")
+
+[node name="ScannerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 25)
+texture = ExtResource("17_tbdtp")
+
+[node name="LightGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost/ScannerGhost"]
+texture_filter = 1
+texture = ExtResource("18_3nqr6")
+
+[node name="SequencerGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 19)
+texture = ExtResource("19_d77l0")
+
+[node name="RepeaterGhost" type="Sprite2D" parent="PlacementManger/PlacementGhost"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 19)
+texture = ExtResource("20_0vpru")
+
+[node name="DeletionGhost" type="Sprite2D" parent="PlacementManger"]
+visible = false
+texture = ExtResource("21_rlein")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlacementManger"]
+
+[node name="Toolbar" type="ColorRect" parent="PlacementManger/CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.188235, 0.466667, 0.752941, 1)
+
+[node name="AssemblerButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -39.0
+offset_right = 62.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Assembler: adds materials to the belt or product in front of it. Configure to change the material"
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/AssemblerButton"]
+texture_filter = 1
+position = Vector2(25, 4)
+texture = ExtResource("14_0qyju")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/AssemblerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TrasherButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -39.0
+offset_right = 122.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Trasher: deletes products."
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/TrasherButton"]
+texture_filter = 1
+position = Vector2(25, 50)
+texture = ExtResource("15_tyssd")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/TrasherButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PackagerButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 132.0
+offset_top = -39.0
+offset_right = 182.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Packager: Delivers products for the objective."
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/PackagerButton"]
+texture_filter = 1
+position = Vector2(25, 4)
+texture = ExtResource("16_f4dbd")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/PackagerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ScannerButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -39.0
+offset_right = 242.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Scanner: outputs a signal based on the space in front of it. Configure to set the condition."
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/ScannerButton"]
+texture_filter = 1
+position = Vector2(25, 41)
+texture = ExtResource("17_tbdtp")
+
+[node name="LightIcon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/ScannerButton/Icon"]
+texture_filter = 1
+texture = ExtResource("18_3nqr6")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/ScannerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SequencerButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 252.0
+offset_top = -39.0
+offset_right = 302.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Sequencer: outputs a sequence of signals. Configure to set the sequence."
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/SequencerButton"]
+texture_filter = 1
+position = Vector2(25, 44)
+texture = ExtResource("19_d77l0")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/SequencerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RepeaterButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 312.0
+offset_top = -39.0
+offset_right = 362.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Repeater: takes in a signal and outputs it the following step."
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/RepeaterButton"]
+texture_filter = 1
+position = Vector2(25, 44)
+texture = ExtResource("20_0vpru")
+
+[node name="Count" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/RepeaterButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WireButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 372.0
+offset_top = -39.0
+offset_right = 422.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/WireButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+texture = ExtResource("22_3tmit")
+
+[node name="DeleteButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 432.0
+offset_top = -39.0
+offset_right = 482.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/DeleteButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+texture = ExtResource("21_rlein")
+
+[node name="InspectionButton" type="Button" parent="PlacementManger/CanvasLayer/Toolbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 492.0
+offset_top = -39.0
+offset_right = 542.0
+offset_bottom = 15.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="PlacementManger/CanvasLayer/Toolbar/InspectionButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+texture = ExtResource("23_xpboc")
+
+[node name="ControlHintBar" type="ColorRect" parent="PlacementManger/CanvasLayer/Toolbar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 1152.0
+grow_vertical = 0
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="HintText" type="Label" parent="PlacementManger/CanvasLayer/Toolbar/ControlHintBar"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 1010.0
+offset_bottom = 23.0
+text = "Help text goes here"
+label_settings = SubResource("LabelSettings_udlml")
+vertical_alignment = 1
+
+[node name="EventBusDebug" type="Node" parent="."]
+script = ExtResource("24_cqhkv")
+
+[node name="MoveTick" type="Button" parent="EventBusDebug"]
+visible = false
+offset_right = 83.0
+offset_bottom = 31.0
+text = "Move tick"
+
+[node name="AdderTick" type="Button" parent="EventBusDebug"]
+visible = false
+offset_top = 40.0
+offset_right = 87.0
+offset_bottom = 71.0
+text = "Adder tick"
+
+[node name="NonImpactingTick" type="Button" parent="EventBusDebug"]
+visible = false
+offset_top = 88.0
+offset_right = 87.0
+offset_bottom = 119.0
+text = "Non-altering tick"
+
+[node name="InputSignalTick" type="Button" parent="EventBusDebug"]
+visible = false
+offset_top = 131.0
+offset_right = 153.0
+offset_bottom = 162.0
+text = "Signal transfer tick"
+
+[node name="FullTick" type="Button" parent="EventBusDebug"]
+visible = false
+offset_top = 176.0
+offset_right = 153.0
+offset_bottom = 207.0
+text = "Full tick"
+
+[node name="ObjectiveManager" type="Node" parent="."]
+script = ExtResource("25_28lag")
+nextLevel = "res://Scenes/Final_Level.tscn"
+ObjectiveArray = [[3, 0, 20], [8, 0, 20]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ObjectiveManager"]
+
+[node name="ColorRect" type="ColorRect" parent="ObjectiveManager/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 600.0
+grow_horizontal = 0
+color = Color(0.188235, 0.466667, 0.752941, 1)
+
+[node name="PrimaryObjective" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UnicycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("26_nbbpy")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/UnicycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Unicycle"
+
+[node name="BicycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("30_pos40")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/BicycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Bicycle"
+
+[node name="TricycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("31_eb2r5")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/TricycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Tricycle"
+
+[node name="MotorcycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("32_h8kg2")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/MotorcycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Motorcycle"
+
+[node name="CarVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("33_d51a8")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/CarVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Car"
+
+[node name="SnowmobileVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("34_ffg6m")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/PrimaryObjective/SnowmobileVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Snowmobile"
+
+[node name="PrimaryScore" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 175.0
+offset_right = 190.0
+offset_bottom = 198.0
+text = "0/20"
+
+[node name="SecondaryScore" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 365.0
+offset_right = 190.0
+offset_bottom = 388.0
+text = "0/20"
+
+[node name="DefectCount" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 398.0
+offset_right = 190.0
+offset_bottom = 421.0
+text = "0/3"
+
+[node name="DefectsLabel" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 398.0
+offset_right = 63.0
+offset_bottom = 421.0
+text = "Defects"
+
+[node name="SecondaryObjective" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+anchors_preset = 0
+offset_top = 190.0
+offset_right = 40.0
+offset_bottom = 230.0
+
+[node name="UnicycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("26_nbbpy")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/UnicycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Unicycle"
+
+[node name="BicycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("30_pos40")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/BicycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Bicycle"
+
+[node name="TricycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("31_eb2r5")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/TricycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Tricycle"
+
+[node name="MotorcycleVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("32_h8kg2")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/MotorcycleVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Motorcycle"
+
+[node name="CarVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("33_d51a8")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/CarVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Car"
+
+[node name="SnowmobileVisual" type="Control" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Visual" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(0, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("34_ffg6m")
+
+[node name="Metal" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(-50, 147)
+texture = ExtResource("27_vcgrr")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual/Metal"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheels" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(0, 147)
+texture = ExtResource("28_y84vu")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual/Wheels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Engines" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual"]
+texture_filter = 1
+position = Vector2(50, 147)
+texture = ExtResource("29_uwran")
+
+[node name="Count" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual/Engines"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -36.5
+offset_right = -5.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="ObjectiveManager/CanvasLayer/ColorRect/SecondaryObjective/SnowmobileVisual"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 175.0
+offset_right = 9.0
+offset_bottom = 198.0
+text = "Snowmobile"
+
+[node name="NextLevelButton" type="Button" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -164.0
+offset_right = 190.0
+offset_bottom = -124.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+text = "Next Level"
+
+[node name="PlayButton" type="Button" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -114.0
+offset_right = 60.0
+offset_bottom = -60.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PlayButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+scale = Vector2(5, 5)
+texture = ExtResource("35_br88t")
+
+[node name="PauseButton" type="Button" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -114.0
+offset_right = 125.0
+offset_bottom = -60.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/PauseButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+scale = Vector2(5, 5)
+texture = ExtResource("36_me4mm")
+
+[node name="StopButton" type="Button" parent="ObjectiveManager/CanvasLayer/ColorRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = -114.0
+offset_right = 190.0
+offset_bottom = -60.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "
+
+"
+
+[node name="Icon" type="Sprite2D" parent="ObjectiveManager/CanvasLayer/ColorRect/StopButton"]
+texture_filter = 1
+position = Vector2(25, 27)
+texture = ExtResource("37_gfmlv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 1
+position = Vector2(463, 260)
+zoom = Vector2(1.25, 1.25)
+
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/AssemblerButton" to="PlacementManger" method="_machine_button_clicked" binds= [0]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/TrasherButton" to="PlacementManger" method="_machine_button_clicked" binds= [1]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/PackagerButton" to="PlacementManger" method="_machine_button_clicked" binds= [2]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/ScannerButton" to="PlacementManger" method="_machine_button_clicked" binds= [3]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/SequencerButton" to="PlacementManger" method="_machine_button_clicked" binds= [4]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/RepeaterButton" to="PlacementManger" method="_machine_button_clicked" binds= [5]]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/WireButton" to="PlacementManger" method="_wire_button_clicked"]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/DeleteButton" to="PlacementManger" method="_on_delete_button_pressed"]
+[connection signal="pressed" from="PlacementManger/CanvasLayer/Toolbar/InspectionButton" to="PlacementManger" method="_on_inspection_button_pressed"]
+[connection signal="pressed" from="EventBusDebug/MoveTick" to="EventBusDebug" method="_on_game_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/AdderTick" to="EventBusDebug" method="_on_adder_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/NonImpactingTick" to="EventBusDebug" method="_on_non_impacting_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/InputSignalTick" to="EventBusDebug" method="_on_input_signal_tick_pressed"]
+[connection signal="pressed" from="EventBusDebug/FullTick" to="EventBusDebug" method="_on_full_tick_pressed"]
+[connection signal="pressed" from="ObjectiveManager/CanvasLayer/ColorRect/NextLevelButton" to="ObjectiveManager" method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="ObjectiveManager/CanvasLayer/ColorRect/PlayButton" to="ObjectiveManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="ObjectiveManager/CanvasLayer/ColorRect/PauseButton" to="ObjectiveManager" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="ObjectiveManager/CanvasLayer/ColorRect/StopButton" to="ObjectiveManager" method="_on_stop_button_pressed"]

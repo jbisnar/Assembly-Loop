@@ -1,0 +1,214 @@
+[gd_scene load_steps=18 format=3 uid="uid://bbcut03ujr0r2"]
+
+[ext_resource type="Script" uid="uid://daw21ro61wc8g" path="res://Scripts/scanner.gd" id="1_vl88q"]
+[ext_resource type="Texture2D" uid="uid://bkrhft7svdd6a" path="res://Sprites/DetectorNew.png" id="2_y8ksh"]
+[ext_resource type="Texture2D" uid="uid://bf7tikj46y13i" path="res://Sprites/DetectorBeamF.png" id="3_48flw"]
+[ext_resource type="Texture2D" uid="uid://bimt4toefyclf" path="res://Sprites/Metal Plate.png" id="4_7q76u"]
+[ext_resource type="Texture2D" uid="uid://b02miwr63wwy6" path="res://Sprites/WheelBG.png" id="5_2xugn"]
+[ext_resource type="Texture2D" uid="uid://qeslgo266qle" path="res://Sprites/Engine.png" id="6_0o4r5"]
+[ext_resource type="Texture2D" uid="uid://b7vwttv404v8j" path="res://Sprites/Unicycle.png" id="7_2fytl"]
+[ext_resource type="Texture2D" uid="uid://c82xxyisf8wv4" path="res://Sprites/Bicycle.png" id="8_62fsy"]
+[ext_resource type="Texture2D" uid="uid://1jvqe5xwpyyr" path="res://Sprites/Tricycle2.png" id="9_0d8ve"]
+[ext_resource type="Texture2D" uid="uid://dt0mppjw1oste" path="res://Sprites/Motorcycle.png" id="10_pxxwy"]
+[ext_resource type="Texture2D" uid="uid://bk68d0dehsuvi" path="res://Sprites/Golf Cart.png" id="11_k17vy"]
+[ext_resource type="Texture2D" uid="uid://c5qtrxienytgx" path="res://Sprites/Snowmobile.png" id="12_y68ss"]
+[ext_resource type="Texture2D" uid="uid://ceg4du074thl0" path="res://Sprites/Scrap.png" id="13_icf0y"]
+[ext_resource type="Texture2D" uid="uid://ds2cbm8dut3qg" path="res://Sprites/abominationD.png" id="14_v8gwj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mhb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y8ksh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6cy0"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg18s"]
+size = Vector2(40, 40)
+
+[node name="Scanner" type="Node2D"]
+z_index = -2
+script = ExtResource("1_vl88q")
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_1mhb5")
+
+[node name="LightSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 6)
+texture = ExtResource("3_48flw")
+offset = Vector2(0, 19)
+
+[node name="ClickArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea2D"]
+shape = SubResource("RectangleShape2D_q6cy0")
+
+[node name="ScanArea2D" type="Area2D" parent="."]
+position = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScanArea2D"]
+shape = SubResource("RectangleShape2D_eg18s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ConfigWindow" type="Window" parent="CanvasLayer"]
+title = "Set condition and otuput"
+initial_position = 2
+size = Vector2i(500, 200)
+visible = false
+
+[node name="If Label" type="Label" parent="CanvasLayer/ConfigWindow"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 33.0
+text = "If product"
+
+[node name="IsContainsOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow"]
+offset_left = 95.0
+offset_top = 10.0
+offset_right = 193.0
+offset_bottom = 41.0
+selected = 0
+item_count = 2
+popup/item_0/text = "is"
+popup/item_1/text = "contains"
+popup/item_1/id = 1
+
+[node name="MatchOptions" type="Control" parent="CanvasLayer/ConfigWindow"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 50.0
+
+[node name="ProductOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow/MatchOptions"]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 78.0
+selected = 0
+item_count = 12
+popup/item_0/text = "Empty"
+popup/item_1/text = "Metal"
+popup/item_1/icon = ExtResource("4_7q76u")
+popup/item_1/id = 1
+popup/item_2/text = "Wheel"
+popup/item_2/icon = ExtResource("5_2xugn")
+popup/item_2/id = 2
+popup/item_3/text = "Engine"
+popup/item_3/icon = ExtResource("6_0o4r5")
+popup/item_3/id = 3
+popup/item_4/text = "Unicycle"
+popup/item_4/icon = ExtResource("7_2fytl")
+popup/item_4/id = 4
+popup/item_5/text = "Bicycle"
+popup/item_5/icon = ExtResource("8_62fsy")
+popup/item_5/id = 5
+popup/item_6/text = "Tricycle"
+popup/item_6/icon = ExtResource("9_0d8ve")
+popup/item_6/id = 6
+popup/item_7/text = "Motorcycle"
+popup/item_7/icon = ExtResource("10_pxxwy")
+popup/item_7/id = 7
+popup/item_8/text = "Car"
+popup/item_8/icon = ExtResource("11_k17vy")
+popup/item_8/id = 8
+popup/item_9/text = "Snowmobile"
+popup/item_9/icon = ExtResource("12_y68ss")
+popup/item_9/id = 9
+popup/item_10/text = "Scrap"
+popup/item_10/icon = ExtResource("13_icf0y")
+popup/item_10/id = 10
+popup/item_11/text = "Abomination"
+popup/item_11/icon = ExtResource("14_v8gwj")
+popup/item_11/id = 11
+
+[node name="CompareOptions" type="Control" parent="CanvasLayer/ConfigWindow"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 50.0
+
+[node name="MaterialOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow/CompareOptions"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+selected = 0
+item_count = 3
+popup/item_0/text = "Metal"
+popup/item_0/icon = ExtResource("4_7q76u")
+popup/item_0/id = 1
+popup/item_1/text = "Wheel"
+popup/item_1/icon = ExtResource("5_2xugn")
+popup/item_1/id = 2
+popup/item_2/text = "Engine"
+popup/item_2/icon = ExtResource("6_0o4r5")
+popup/item_2/id = 3
+
+[node name="OperatorOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow/CompareOptions"]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 192.0
+offset_bottom = 20.0
+selected = 0
+item_count = 3
+popup/item_0/text = "="
+popup/item_1/text = ">"
+popup/item_1/id = 1
+popup/item_2/text = "<"
+popup/item_2/id = 2
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/ConfigWindow/CompareOptions"]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 293.063
+offset_bottom = 31.0
+alignment = 1
+
+[node name="OutputOptions" type="Control" parent="CanvasLayer/ConfigWindow"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 140.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfigWindow/OutputOptions"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 23.0
+text = "Output"
+
+[node name="OutputSignalOptionButton" type="OptionButton" parent="CanvasLayer/ConfigWindow/OutputOptions"]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 127.0
+offset_bottom = 31.0
+selected = 0
+item_count = 2
+popup/item_0/text = "Go"
+popup/item_0/id = 1
+popup/item_1/text = "Stop"
+popup/item_1/id = 1
+
+[connection signal="input_event" from="ClickArea2D" to="." method="_on_click_area_2d_input_event"]
+[connection signal="close_requested" from="CanvasLayer/ConfigWindow" to="." method="_on_config_window_close_requested"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/IsContainsOptionButton" to="." method="_on_is_contains_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/MatchOptions/ProductOptionButton" to="." method="_on_product_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/CompareOptions/MaterialOptionButton" to="." method="_on_material_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/CompareOptions/OperatorOptionButton" to="." method="_on_operator_option_button_item_selected"]
+[connection signal="value_changed" from="CanvasLayer/ConfigWindow/CompareOptions/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/ConfigWindow/OutputOptions/OutputSignalOptionButton" to="." method="_on_output_signal_option_button_item_selected"]

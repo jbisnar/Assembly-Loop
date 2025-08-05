@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3prbnbyks3gx"]
+
+[ext_resource type="Script" uid="uid://bqmwfk70t4lqq" path="res://Scripts/belt.gd" id="1_hmdd0"]
+[ext_resource type="Texture2D" uid="uid://fldfo3r4f2ai" path="res://Sprites/beltA.png" id="2_eqf5b"]
+[ext_resource type="Texture2D" uid="uid://8faa3qe57kh" path="res://Sprites/beltB.png" id="3_b8g1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvprg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eqf5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b8g1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oomay"]
+size = Vector2(40, 40)
+
+[node name="StraightBelt" type="Node2D"]
+script = ExtResource("1_hmdd0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -3
+sprite_frames = SubResource("SpriteFrames_wvprg")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="NextPoint" type="Node2D" parent="."]
+position = Vector2(50, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oomay")
