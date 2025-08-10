@@ -91,6 +91,5 @@ func AttemptDelete() -> bool:
 		return false
 	disconnectAllReceivers()
 	DisconnectWire()
-	EventBus.emit_signal("Machine_Deleted",5)
 	queue_free()
 	return true

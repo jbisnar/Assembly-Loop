@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhq7clmq06aa8"]
 
-[ext_resource type="Script" uid="uid://c7cstpgg3eo2r" path="res://Scripts/trasher.gd" id="1_n33or"]
+[ext_resource type="Script" path="res://Scripts/trasher.gd" id="1_n33or"]
 [ext_resource type="Texture2D" uid="uid://cjhsy6grv1osl" path="res://Sprites/TrashA.png" id="2_g0bce"]
 [ext_resource type="Texture2D" uid="uid://b4ugbslsppaxc" path="res://Sprites/TrashB.png" id="3_todv6"]
 [ext_resource type="Texture2D" uid="uid://ccqkwjo5dogen" path="res://Sprites/Green2x2.png" id="4_7vs1m"]

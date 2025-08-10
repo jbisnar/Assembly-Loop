@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://3prbnbyks3gx"]
+[gd_scene load_steps=6 format=3 uid="uid://cumvdyubuvdfp"]
 
-[ext_resource type="Script" uid="uid://bqmwfk70t4lqq" path="res://Scripts/belt.gd" id="1_hmdd0"]
+[ext_resource type="Script" uid="uid://b0u2m7wbdoxb5" path="res://Scripts/belt.gd" id="1_hmdd0"]
 [ext_resource type="Texture2D" uid="uid://fldfo3r4f2ai" path="res://Sprites/beltA.png" id="2_eqf5b"]
 [ext_resource type="Texture2D" uid="uid://8faa3qe57kh" path="res://Sprites/beltB.png" id="3_b8g1m"]
 

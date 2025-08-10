@@ -160,6 +160,5 @@ func AttemptDelete() -> bool:
 	if Locked:
 		return false
 	disconnectAllReceivers()
-	EventBus.emit_signal("Machine_Deleted",5)
 	queue_free()
 	return true

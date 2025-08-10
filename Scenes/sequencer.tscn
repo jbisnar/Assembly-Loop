@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0f4816nv6w7h"]
 
-[ext_resource type="Script" uid="uid://cyegxagshu8dp" path="res://Scripts/sequencer.gd" id="1_ib4y0"]
+[ext_resource type="Script" uid="uid://cfunhldins2v5" path="res://Scripts/sequencer.gd" id="1_ib4y0"]
 [ext_resource type="Texture2D" uid="uid://ivd41y6d4xbx" path="res://Sprites/Delayer.png" id="2_3ynql"]
 [ext_resource type="Texture2D" uid="uid://brkajge73xvg8" path="res://Sprites/Red4x4.png" id="3_qee6y"]
 

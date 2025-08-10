@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cudxw0kcn8i8e"]
+
+[ext_resource type="Texture2D" uid="uid://ds2cbm8dut3qg" path="res://Sprites/abominationD.png" id="1_g30fi"]
+
+[node name="Empty" type="Node2D"]
+
+[node name="AbominationD" type="Sprite2D" parent="."]
+position = Vector2(106, 45)
+texture = ExtResource("1_g30fi")
+
+[node name="AbominationD2" type="Sprite2D" parent="."]
+position = Vector2(93, 178)
+texture = ExtResource("1_g30fi")

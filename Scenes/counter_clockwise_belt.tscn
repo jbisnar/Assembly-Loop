@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgkpdrklpftpr"]
+[gd_scene load_steps=5 format=3 uid="uid://d0opxniriw0kl"]
 
-[ext_resource type="Script" uid="uid://bqmwfk70t4lqq" path="res://Scripts/belt.gd" id="1_e2bqy"]
+[ext_resource type="Script" uid="uid://b0u2m7wbdoxb5" path="res://Scripts/belt.gd" id="1_e2bqy"]
 [ext_resource type="Texture2D" uid="uid://dcr4btnqtfl73" path="res://Sprites/BeltCorner.png" id="2_tdnaf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wvprg"]

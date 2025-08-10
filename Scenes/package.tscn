@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://drd1u57dfja7b"]
+[gd_scene load_steps=4 format=3 uid="uid://dnjca2dkayy43"]
 
-[ext_resource type="Script" uid="uid://cm84mpqb750fk" path="res://Scripts/package.gd" id="1_ov8aq"]
+[ext_resource type="Script" uid="uid://b2a7dfjhk54yw" path="res://Scripts/package.gd" id="1_ov8aq"]
 [ext_resource type="Texture2D" uid="uid://c1ywmtp6j84x7" path="res://Sprites/ShippingBox.png" id="2_0dvhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_witcs"]
